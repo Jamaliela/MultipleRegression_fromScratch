@@ -8,8 +8,7 @@
 # discussed in class to solve for the coefficients.  The regression model
 # is able to accept an arbitrary number of input variables.
 #
-# Acknowledgement: Emely Alfaro Zavala for helping me to complete
-# this assignment. Different articles were read for this.
+# Acknowledgement: Different articles were read for this.
 #
 ######################################################################
 import numpy as np  # library supporting large, multi-dimensional arrays and matrices.
