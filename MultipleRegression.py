@@ -15,29 +15,29 @@
 import numpy as np  # library supporting large, multi-dimensional arrays and matrices.
 import pandas as pd  # library to take data and creates a Python object with rows and columns
 import matplotlib.pyplot as plot  # library for embedding plots
-from mpl_toolkits.mplot3d import Axes3D # library for 3D model
+from mpl_toolkits.mplot3d import Axes3D  # library for 3D model
 
 data = pd.read_csv('FuelConsumptionCo2.csv')
 print(data.shape)
 print(data.head())
 
-MC = data['MC'].values
-Bid = data['Bid'].values
-MarketPrice = data['Market Price'].values
+CO2EMISSIONS = data['CO2EMISSIONS'].values
+FUELCONSUMPTION_CITY = data['FUELCONSUMPTION_CITY'].values
+FUELCONSUMPTION_HWY = data['FUELCONSUMPTION_HWY'].values
 
 # Plotting the scores as scatter plot
 figure = plot.figure()
 axes = Axes3D(figure)
-axes.scatter(MC, Bid, MarketPrice, color='#ef1234')
+axes.scatter(CO2EMISSIONS, FUELCONSUMPTION_CITY, FUELCONSUMPTION_HWY, color='#ef1234')
 plot.show()
 
 # generating our X, Y and B
-m = len(MC)
+m = len(CO2EMISSIONS)
 x0 = np.ones(m)
-X = np.array([x0, MC, Bid]).T
+X = np.array([x0, CO2EMISSIONS, FUELCONSUMPTION_CITY]).T
 # Initial Coefficients
 B = np.array([0, 0, 0])
-Y = np.array(MarketPrice)
+Y = np.array(FUELCONSUMPTION_HWY)
 alpha = 0.0001
 
 
