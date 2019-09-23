@@ -16,27 +16,27 @@ import pandas as pd  # library to take data and creates a Python object with row
 import matplotlib.pyplot as plot  # library for embedding plots
 from mpl_toolkits.mplot3d import Axes3D  # library for 3D model
 
-data = pd.read_csv('FuelConsumptionCo2.csv')
+data = pd.read_csv('student.csv')
 print(data.shape)
 print(data.head())
 
-CO2EMISSIONS = data['CO2EMISSIONS'].values
-FUELCONSUMPTION_CITY = data['FUELCONSUMPTION_CITY'].values
-FUELCONSUMPTION_HWY = data['FUELCONSUMPTION_HWY'].values
+math = data['Math'].values
+reading = data['Reading'].values
+writing = data['Writing'].values
 
 # Plotting the scores as scatter plot
 figure = plot.figure()
 axes = Axes3D(figure)
-axes.scatter(CO2EMISSIONS, FUELCONSUMPTION_CITY, FUELCONSUMPTION_HWY, color='#ef1234')
+axes.scatter(math, reading, writing, color='#ef5423')
 plot.show()
 
 # generating our X, Y and B
-m = len(CO2EMISSIONS)
+m = len(math)
 x0 = np.ones(m)
-X = np.array([x0, CO2EMISSIONS, FUELCONSUMPTION_CITY]).T
+X = np.array([x0, math, reading]).T
 # Initial Coefficients
 B = np.array([0, 0, 0])
-Y = np.array(FUELCONSUMPTION_HWY)
+Y = np.array(writing)
 alpha = 0.0001
 
 
